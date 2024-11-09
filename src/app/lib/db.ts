@@ -1,5 +1,4 @@
 import mongoose , {Connection} from 'mongoose'
-
 let cashedConnection : Connection | null = null 
 
 export async function connectToMongoDB () {
@@ -10,6 +9,7 @@ export async function connectToMongoDB () {
 
     try {
         const cnx = await mongoose.connect(process.env.MONGODB_URI!)
+
         cashedConnection = cnx.connection;
 
         console.log("New connection established")
